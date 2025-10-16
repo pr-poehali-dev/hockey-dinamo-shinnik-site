@@ -294,56 +294,93 @@ export default function Index() {
           </TabsContent>
 
           <TabsContent value="players" className="animate-fade-in">
-            <h2 className="text-4xl font-bold mb-6 text-center">Состав команды</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {players.map((player, idx) => (
-                <Card key={idx} className="hover:shadow-xl transition-all hover:-translate-y-1 border-2 border-border hover:border-primary group">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-2xl group-hover:scale-110 transition-transform">
-                        {player.number}
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2">
-                          <h3 className="text-xl font-bold">{player.name}</h3>
-                          {player.isCaptain && (
-                            <Badge className="bg-primary text-xs">C</Badge>
-                          )}
-                          {player.isAssistant && (
-                            <Badge variant="outline" className="text-xs">A</Badge>
-                          )}
+            <h2 className="text-4xl font-bold mb-6 text-center text-white">Состав команды</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {players.map((player, idx) => {
+                const getInitials = (name: string) => {
+                  const parts = name.split(' ');
+                  if (parts.length >= 2) {
+                    return parts[0][0] + parts[1][0];
+                  }
+                  return name.substring(0, 2).toUpperCase();
+                };
+                
+                const avatarColors = [
+                  'from-blue-500 to-blue-700',
+                  'from-indigo-500 to-indigo-700',
+                  'from-purple-500 to-purple-700',
+                  'from-cyan-500 to-cyan-700',
+                  'from-sky-500 to-sky-700',
+                  'from-blue-600 to-indigo-600',
+                  'from-violet-500 to-violet-700',
+                  'from-blue-400 to-blue-600',
+                  'from-indigo-600 to-purple-600'
+                ];
+                
+                return (
+                  <Card key={idx} className="bg-slate-800 border-slate-700 hover:shadow-xl hover:shadow-primary/20 transition-all hover:-translate-y-1 hover:border-primary group overflow-hidden">
+                    <CardContent className="p-0">
+                      <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 p-6 pb-4">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16"></div>
+                        <div className="flex items-start gap-4 relative z-10">
+                          <div className={`w-20 h-20 bg-gradient-to-br ${avatarColors[idx % avatarColors.length]} rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg group-hover:scale-110 transition-transform border-4 border-slate-700`}>
+                            {getInitials(player.name)}
+                          </div>
+                          <div className="flex-1 pt-2">
+                            <div className="flex items-center gap-2 mb-1">
+                              <h3 className="text-xl font-bold text-white">{player.name}</h3>
+                              {player.isCaptain && (
+                                <Badge className="bg-blue-500 text-xs">C</Badge>
+                              )}
+                              {player.isAssistant && (
+                                <Badge className="bg-slate-600 text-white text-xs">A</Badge>
+                              )}
+                            </div>
+                            <p className="text-sm text-slate-400">{player.position}</p>
+                            <div className="mt-2">
+                              <Badge variant="outline" className="border-primary/50 text-primary text-xs">
+                                #{player.number}
+                              </Badge>
+                            </div>
+                          </div>
                         </div>
-                        <p className="text-sm text-muted-foreground">{player.position}</p>
                       </div>
-                    </div>
-                    
-                    {player.position !== 'Вратарь' && (
-                      <div className="grid grid-cols-3 gap-2 text-center">
-                        <div className="bg-muted/50 p-2 rounded">
-                          <p className="text-xs text-muted-foreground">Голы</p>
-                          <p className="text-lg font-bold text-primary">{player.stats.goals}</p>
-                        </div>
-                        <div className="bg-muted/50 p-2 rounded">
-                          <p className="text-xs text-muted-foreground">Передачи</p>
-                          <p className="text-lg font-bold text-green-500">{player.stats.assists}</p>
-                        </div>
-                        <div className="bg-muted/50 p-2 rounded">
-                          <p className="text-xs text-muted-foreground">Очки</p>
-                          <p className="text-lg font-bold">{player.stats.points}</p>
-                        </div>
+                      
+                      <div className="px-6 pb-6">
+                        {player.position !== 'Вратарь' ? (
+                          <div className="grid grid-cols-3 gap-2 text-center">
+                            <div className="bg-slate-900/50 p-3 rounded-lg">
+                              <p className="text-xs text-slate-400 mb-1">Голы</p>
+                              <p className="text-xl font-bold text-green-400">{player.goals || 0}</p>
+                            </div>
+                            <div className="bg-slate-900/50 p-3 rounded-lg">
+                              <p className="text-xs text-slate-400 mb-1">Передачи</p>
+                              <p className="text-xl font-bold text-blue-400">{player.assists || 0}</p>
+                            </div>
+                            <div className="bg-slate-900/50 p-3 rounded-lg">
+                              <p className="text-xs text-slate-400 mb-1">Очки</p>
+                              <p className="text-xl font-bold text-primary">{player.points || 0}</p>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="bg-slate-900/50 p-4 rounded-lg text-center">
+                            <div className="grid grid-cols-2 gap-4">
+                              <div>
+                                <p className="text-xs text-slate-400 mb-1">Сэйвы</p>
+                                <p className="text-xl font-bold text-blue-400">{player.saves}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-slate-400 mb-1">SV%</p>
+                                <p className="text-xl font-bold text-green-400">{player.svPercent}%</p>
+                              </div>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    )}
-                    
-                    {player.position === 'Вратарь' && (
-                      <div className="text-center bg-muted/50 p-3 rounded">
-                        <p className="text-sm text-muted-foreground mb-1">Надежность обороны</p>
-                        <p className="text-2xl font-bold text-green-500">100%</p>
-                        <p className="text-xs text-muted-foreground">2 игры без пропущенных шайб</p>
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           </TabsContent>
 
