@@ -54,7 +54,7 @@ interface Standing {
 
 const standings: Standing[] = [
   { position: 1, team: 'Красная Армия', games: 10, wins: 8, overtimeWins: 0, overtimeLosses: 1, losses: 1, goalsFor: 23, goalsAgainst: 9, points: 17 },
-  { position: 2, team: 'Динамо-Шинник', games: 8, wins: 5, overtimeWins: 1, overtimeLosses: 0, losses: 1, goalsFor: 21, goalsAgainst: 10, points: 14 },
+  { position: 2, team: 'Динамо-Шинник', games: 8, wins: 5, overtimeWins: 1, overtimeLosses: 1, losses: 1, goalsFor: 20, goalsAgainst: 10, points: 16 },
   { position: 3, team: 'МХК Спартак', games: 5, wins: 4, overtimeWins: 0, overtimeLosses: 0, losses: 1, goalsFor: 12, goalsAgainst: 3, points: 8 },
   { position: 4, team: 'Академия Михайлова', games: 7, wins: 3, overtimeWins: 1, overtimeLosses: 0, losses: 3, goalsFor: 9, goalsAgainst: 8, points: 8 },
   { position: 5, team: 'Локо', games: 8, wins: 3, overtimeWins: 0, overtimeLosses: 1, losses: 4, goalsFor: 19, goalsAgainst: 24, points: 7 },
@@ -67,12 +67,12 @@ const standings: Standing[] = [
 const matches: Match[] = [
   { date: '25 сентября', time: '18:30', opponent: 'Белые медведи', isHome: false, result: '3:0' },
   { date: '2 октября', time: '17:30', opponent: 'Кузнецкие Медведи', isHome: true, result: '2:1' },
-  { date: '7 октября', time: '19:00', opponent: 'Мамонты Югры', isHome: false },
-  { date: '9 октября', time: '17:30', opponent: 'Локо', isHome: true },
-  { date: '10 октября', time: '17:30', opponent: 'Сибирские снайперы', isHome: true },
-  { date: '11 октября', time: '18:30', opponent: 'Алмаз', isHome: true },
-  { date: '16 октября', time: '15:00', opponent: 'Чайка', isHome: false },
-  { date: '16 октября', time: '17:30', opponent: 'Стальные лисы', isHome: false },
+  { date: '7 октября', time: '19:00', opponent: 'Мамонты Югры', isHome: false, result: '2:0' },
+  { date: '9 октября', time: '17:30', opponent: 'Локо', isHome: true, result: '6:5 (ОТ)' },
+  { date: '10 октября', time: '17:30', opponent: 'Сибирские снайперы', isHome: true, result: '2:1 (Б)' },
+  { date: '11 октября', time: '18:30', opponent: 'Алмаз', isHome: true, result: '5:0' },
+  { date: '16 октября', time: '15:00', opponent: 'ДСПб', isHome: false, result: 'ТП' },
+  { date: '16 октября', time: '17:30', opponent: 'Стальные лисы', isHome: false, result: '0:3' },
   { date: '17 октября', time: '16:30', opponent: 'Омские ястребы', isHome: true },
   { date: '18 октября', time: '16:30', opponent: 'Академия Михайлово', isHome: false },
   { date: '19 октября', time: '18:30', opponent: 'СКА', isHome: true },
@@ -85,87 +85,85 @@ const matches: Match[] = [
 
 const players: Player[] = [
   { 
+    name: 'Unnamed', 
+    number: '5', 
+    position: 'Вратарь',
+    saves: 1,
+    svPercent: 100,
+    stats: { games: 8, goals: 0, assists: 0, points: 0, plusMinus: 0 }
+  },
+  { 
     name: 'Morfyy', 
     number: '99', 
-    position: 'Нападающий', 
-    isCaptain: true,
-    goals: 2,
-    assists: 1,
-    points: 3,
-    stats: { games: 2, goals: 2, assists: 1, points: 3, plusMinus: 3 }
+    position: 'Вратарь',
+    saves: 2,
+    svPercent: 100,
+    stats: { games: 8, goals: 0, assists: 0, points: 0, plusMinus: 0 }
   },
   { 
     name: 'Ylokz', 
     number: '19', 
     position: 'Защитник', 
-    isAssistant: true,
+    isCaptain: true,
+    goals: 1,
+    assists: 5,
+    points: 6,
+    stats: { games: 8, goals: 1, assists: 5, points: 6, plusMinus: 8 }
+  },
+  { 
+    name: 'николаич', 
+    number: '35', 
+    position: 'Защитник',
     goals: 0,
-    assists: 2,
-    points: 2,
-    stats: { games: 2, goals: 0, assists: 2, points: 2, plusMinus: 2 }
+    assists: 3,
+    points: 3,
+    stats: { games: 8, goals: 0, assists: 3, points: 3, plusMinus: 5 }
   },
   { 
     name: 'quantum', 
     number: '53', 
     position: 'Нападающий',
-    goals: 1,
-    assists: 0,
-    points: 1,
-    stats: { games: 2, goals: 1, assists: 0, points: 1, plusMinus: 1 }
+    goals: 7,
+    assists: 2,
+    points: 9,
+    stats: { games: 8, goals: 7, assists: 2, points: 9, plusMinus: 10 }
   },
   { 
-    name: 'gazash', 
-    number: '21', 
+    name: 'estriper', 
+    number: '3', 
     position: 'Нападающий',
     goals: 1,
     assists: 1,
     points: 2,
-    stats: { games: 2, goals: 1, assists: 1, points: 2, plusMinus: 2 }
+    stats: { games: 8, goals: 1, assists: 1, points: 2, plusMinus: 3 }
   },
   { 
-    name: 'Unnamed', 
-    number: '5', 
-    position: 'Защитник', 
+    name: 'Gazash', 
+    number: '21', 
+    position: 'Нападающий', 
     isAssistant: true,
-    goals: 0,
-    assists: 1,
-    points: 1,
-    stats: { games: 2, goals: 0, assists: 1, points: 1, plusMinus: 1 }
+    goals: 5,
+    assists: 4,
+    points: 9,
+    stats: { games: 8, goals: 5, assists: 4, points: 9, plusMinus: 9 }
   },
   { 
     name: 'крико', 
     number: '54', 
-    position: 'Защитник',
-    goals: 0,
-    assists: 0,
-    points: 0,
-    stats: { games: 2, goals: 0, assists: 0, points: 0, plusMinus: 0 }
+    position: 'Нападающий',
+    goals: 3,
+    assists: 3,
+    points: 6,
+    stats: { games: 8, goals: 3, assists: 3, points: 6, plusMinus: 7 }
   },
   { 
-    name: 'Estriper', 
-    number: '3', 
-    position: 'Защитник',
-    goals: 1,
-    assists: 0,
-    points: 1,
-    stats: { games: 2, goals: 1, assists: 0, points: 1, plusMinus: 2 }
-  },
-  { 
-    name: 'Cago', 
-    number: '13', 
+    name: 'huksyy', 
+    number: '7', 
     position: 'Нападающий',
     goals: 0,
     assists: 0,
     points: 0,
-    stats: { games: 2, goals: 0, assists: 0, points: 0, plusMinus: 0 }
-  },
-  { 
-    name: 'Николаич', 
-    number: '35', 
-    position: 'Вратарь',
-    saves: 45,
-    svPercent: 97.8,
-    stats: { games: 2, goals: 0, assists: 0, points: 0, plusMinus: 0 }
+    stats: { games: 8, goals: 0, assists: 0, points: 0, plusMinus: 0 }
   },
 ];
 
@@ -184,15 +182,15 @@ const news: NewsItem[] = [
   },
   {
     title: 'Динамо-Шинник на 2-м месте в Западной конференции!',
-    date: '3 октября 2024',
-    preview: 'После двух побед команда занимает второе место в турнирной таблице с 14 очками, уступая только Красной Армии.',
+    date: '16 октября 2024',
+    preview: 'После 6 побед в 8 играх команда занимает второе место в турнирной таблице с 16 очками, уступая только Красной Армии. Осталось 9 игр регулярки!',
     category: 'Турнир'
   },
   {
-    title: 'Впереди серия домашних игр',
-    date: '7 октября 2024',
-    preview: 'С 9 по 19 октября команда проведет 5 домашних матчей подряд. Это отличная возможность укрепить позиции в турнирной таблице.',
-    category: 'Анонсы'
+    title: 'Уверенная серия из 6 побед!',
+    date: '16 октября 2024',
+    preview: 'Команда одержала 6 побед в 8 играх регулярки! Особенно яркими были победы над Локо в овертайме 6:5 и сухая победа 5:0 над Алмазом. Вратари Unnamed и Morfyy оформили по сухарю каждый.',
+    category: 'Результаты'
   }
 ];
 
@@ -229,7 +227,10 @@ export default function Index() {
                 2 место в турнире
               </Badge>
               <Badge className="bg-primary/80 backdrop-blur text-white px-6 py-3 text-lg">
-                14 очков
+                16 очков
+              </Badge>
+              <Badge className="bg-yellow-500 text-white px-6 py-3 text-lg hover:bg-yellow-600">
+                6 побед / 8 игр
               </Badge>
             </div>
           </div>
@@ -545,7 +546,7 @@ export default function Index() {
                       <p className="text-sm text-muted-foreground uppercase">Побед</p>
                     </div>
                     <div className="text-center p-4 bg-muted/50 rounded-lg">
-                      <div className="text-4xl font-bold text-primary mb-2">21</div>
+                      <div className="text-4xl font-bold text-primary mb-2">20</div>
                       <p className="text-sm text-muted-foreground uppercase">Голов забито</p>
                     </div>
                     <div className="text-center p-4 bg-muted/50 rounded-lg">
