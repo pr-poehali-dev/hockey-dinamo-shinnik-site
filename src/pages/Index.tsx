@@ -72,7 +72,7 @@ const matches: Match[] = [
   { date: '10 октября', time: '17:30', opponent: 'Сибирские снайперы', isHome: true, result: '2:1 (Б)' },
   { date: '11 октября', time: '18:30', opponent: 'Алмаз', isHome: true, result: '5:0' },
   { date: '16 октября', time: '15:00', opponent: 'ДСПб', isHome: false, result: 'ТП' },
-  { date: '16 октября', time: '17:30', opponent: 'Стальные лисы', isHome: false, result: '0:30 (ТП)' },
+  { date: '16 октября', time: '17:30', opponent: 'Стальные лисы', isHome: false, result: '0:3' },
   { date: '17 октября', time: '16:30', opponent: 'Омские ястребы', isHome: true },
   { date: '18 октября', time: '16:30', opponent: 'Академия Михайлово', isHome: false },
   { date: '19 октября', time: '18:30', opponent: 'СКА', isHome: true },
