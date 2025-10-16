@@ -177,7 +177,7 @@ const news: NewsItem[] = [
     category: 'Матчи'
   },
   {
-    title: 'Уверенный старт сезона МХЛ Б',
+    title: 'Уверенный старт сезона VFHL',
     date: '26 сентября 2024',
     preview: 'Команда разгромила Белых медведей со счетом 3:0 в первом матче сезона. Отличная игра в обороне и уверенные действия вратаря Николаича.',
     category: 'Результаты'
@@ -223,7 +223,7 @@ export default function Index() {
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Badge className="bg-white text-primary px-6 py-3 text-lg hover:bg-white/90">
-                МХЛ Б 2024/25
+                VFHL 2024/25
               </Badge>
               <Badge className="bg-green-500 text-white px-6 py-3 text-lg hover:bg-green-600">
                 2 место в турнире
@@ -286,7 +286,7 @@ export default function Index() {
           </TabsContent>
 
           <TabsContent value="standings" className="animate-fade-in">
-            <h2 className="text-4xl font-bold mb-6 text-center">Западная конференция МХЛ Б</h2>
+<h2 className="text-4xl font-bold mb-6 text-center">Западная конференция VFHL</h2>
             <Card className="max-w-6xl mx-auto border-2 border-primary/30">
               <CardHeader className="bg-gradient-to-r from-primary/20 to-blue-600/20">
                 <CardTitle className="text-2xl text-center">Турнирная таблица • Сезон 2024/25</CardTitle>
@@ -593,7 +593,7 @@ export default function Index() {
       <footer className="bg-card border-t border-border py-8 mt-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-2">ДИНАМО ШИННИК</h2>
-          <p className="text-muted-foreground">МХЛ Б • Сезон 2024/25 • 2 место в Западной конференции</p>
+          <p className="text-muted-foreground">VFHL • Сезон 2024/25 • 2 место в Западной конференции</p>
           <p className="text-sm text-muted-foreground mt-4">Время московское</p>
         </div>
       </footer>
