@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Icon from '@/components/ui/icon';
 
@@ -66,13 +65,16 @@ export default function Index() {
 
   const upcomingMatches = matches.filter(m => !m.result);
   const pastMatches = matches.filter(m => m.result);
+  const forwardPlayers = players.filter(p => p.position === 'Нападающий');
+  const defensePlayers = players.filter(p => p.position === 'Защитник');
+  const goalies = players.filter(p => p.position === 'Вратарь');
 
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <div 
-        className="relative h-[70vh] bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 overflow-hidden"
+        className="relative h-[70vh] bg-gradient-to-br from-primary via-blue-900 to-slate-950 overflow-hidden"
       >
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIuNSIgb3BhY2l0eT0iLjEiLz48L2c+PC9zdmc+')] opacity-20"></div>
         
         <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
@@ -83,37 +85,37 @@ export default function Index() {
             <p className="text-2xl md:text-3xl text-white/90 mb-8 font-medium">
               Хоккейный клуб
             </p>
-            <div className="flex gap-4 justify-center">
+            <div className="flex gap-4 justify-center flex-wrap">
               <Badge className="bg-white text-primary px-6 py-3 text-lg hover:bg-white/90">
                 МХЛ Б 2024/25
               </Badge>
-              <Badge className="bg-slate-700 text-white px-6 py-3 text-lg hover:bg-slate-600">
+              <Badge className="bg-blue-500 text-white px-6 py-3 text-lg hover:bg-blue-600">
                 2 победы
               </Badge>
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-900 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent"></div>
       </div>
 
       <div className="container mx-auto px-4 -mt-20 relative z-20 pb-16">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full max-w-3xl mx-auto grid-cols-4 h-14 bg-slate-800 border-slate-700 shadow-lg mb-8">
-            <TabsTrigger value="matches" className="text-base font-bold text-slate-300 data-[state=active]:bg-primary data-[state=active]:text-white">
-              <Icon name="Calendar" size={20} className="mr-2" />
+            <TabsTrigger value="matches" className="text-sm md:text-base font-bold text-slate-300 data-[state=active]:bg-primary data-[state=active]:text-white">
+              <Icon name="Calendar" size={20} className="mr-1 md:mr-2" />
               МАТЧИ
             </TabsTrigger>
-            <TabsTrigger value="players" className="text-base font-bold text-slate-300 data-[state=active]:bg-primary data-[state=active]:text-white">
-              <Icon name="Users" size={20} className="mr-2" />
+            <TabsTrigger value="players" className="text-sm md:text-base font-bold text-slate-300 data-[state=active]:bg-primary data-[state=active]:text-white">
+              <Icon name="Users" size={20} className="mr-1 md:mr-2" />
               СОСТАВ
             </TabsTrigger>
-            <TabsTrigger value="stats" className="text-base font-bold text-slate-300 data-[state=active]:bg-primary data-[state=active]:text-white">
-              <Icon name="BarChart3" size={20} className="mr-2" />
+            <TabsTrigger value="stats" className="text-sm md:text-base font-bold text-slate-300 data-[state=active]:bg-primary data-[state=active]:text-white">
+              <Icon name="BarChart3" size={20} className="mr-1 md:mr-2" />
               СТАТИСТИКА
             </TabsTrigger>
-            <TabsTrigger value="results" className="text-base font-bold text-slate-300 data-[state=active]:bg-primary data-[state=active]:text-white">
-              <Icon name="Trophy" size={20} className="mr-2" />
+            <TabsTrigger value="results" className="text-sm md:text-base font-bold text-slate-300 data-[state=active]:bg-primary data-[state=active]:text-white">
+              <Icon name="Trophy" size={20} className="mr-1 md:mr-2" />
               РЕЗУЛЬТАТЫ
             </TabsTrigger>
           </TabsList>
@@ -161,17 +163,17 @@ export default function Index() {
                 <Card key={idx} className="bg-slate-800 border-slate-700 hover:shadow-xl hover:shadow-primary/20 transition-all hover:-translate-y-1 hover:border-primary group">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-primary to-blue-700 rounded-full flex items-center justify-center text-white font-bold text-2xl group-hover:scale-110 transition-transform">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-2xl group-hover:scale-110 transition-transform">
                         {player.number}
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
                           <h3 className="text-xl font-bold text-white">{player.name}</h3>
                           {player.isCaptain && (
-                            <Badge className="bg-primary text-xs">C</Badge>
+                            <Badge className="bg-blue-500 text-xs">C</Badge>
                           )}
                           {player.isAssistant && (
-                            <Badge className="bg-slate-600 text-white text-xs">A</Badge>
+                            <Badge variant="outline" className="text-xs border-blue-500 text-blue-400">A</Badge>
                           )}
                         </div>
                         <p className="text-sm text-slate-400">{player.position}</p>
@@ -184,102 +186,129 @@ export default function Index() {
           </TabsContent>
 
           <TabsContent value="stats" className="animate-fade-in">
-            <h2 className="text-4xl font-bold mb-6 text-center text-white">Статистика игроков</h2>
+            <h2 className="text-4xl font-bold mb-8 text-center text-white">Статистика игроков</h2>
             
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold mb-4 text-white">Полевые игроки</h3>
-              <Card className="bg-slate-800 border-slate-700">
-                <CardContent className="p-0">
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold mb-4 text-white flex items-center gap-2">
+                  <Icon name="Target" size={24} className="text-primary" />
+                  Нападающие
+                </h3>
+                <Card className="bg-slate-800 border-slate-700 overflow-hidden">
                   <div className="overflow-x-auto">
-                    <table className="w-full">
-                      <thead className="bg-slate-900">
+                    <table className="w-full text-left">
+                      <thead className="bg-slate-900 text-slate-300">
                         <tr>
-                          <th className="px-4 py-3 text-left text-xs font-bold text-slate-300 uppercase">#</th>
-                          <th className="px-4 py-3 text-left text-xs font-bold text-slate-300 uppercase">Игрок</th>
-                          <th className="px-4 py-3 text-center text-xs font-bold text-slate-300 uppercase">Поз</th>
-                          <th className="px-4 py-3 text-center text-xs font-bold text-slate-300 uppercase">Голы</th>
-                          <th className="px-4 py-3 text-center text-xs font-bold text-slate-300 uppercase">Пасы</th>
-                          <th className="px-4 py-3 text-center text-xs font-bold text-slate-300 uppercase">Очки</th>
-                          <th className="px-4 py-3 text-center text-xs font-bold text-slate-300 uppercase">+/-</th>
-                          <th className="px-4 py-3 text-center text-xs font-bold text-slate-300 uppercase">Штраф</th>
-                          <th className="px-4 py-3 text-center text-xs font-bold text-slate-300 uppercase">Броски</th>
+                          <th className="px-4 py-3 font-bold">#</th>
+                          <th className="px-4 py-3 font-bold">Игрок</th>
+                          <th className="px-4 py-3 font-bold text-center">Г</th>
+                          <th className="px-4 py-3 font-bold text-center">П</th>
+                          <th className="px-4 py-3 font-bold text-center">О</th>
+                          <th className="px-4 py-3 font-bold text-center">+/-</th>
+                          <th className="px-4 py-3 font-bold text-center">Штр</th>
+                          <th className="px-4 py-3 font-bold text-center">Бр</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        {players.filter(p => p.position !== 'Вратарь').map((player, idx) => (
-                          <tr key={idx} className="border-t border-slate-700 hover:bg-slate-750 transition-colors">
-                            <td className="px-4 py-4">
-                              <div className="w-10 h-10 bg-gradient-to-br from-primary to-blue-700 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                                {player.number}
-                              </div>
-                            </td>
-                            <td className="px-4 py-4">
+                      <tbody className="text-slate-200">
+                        {forwardPlayers.sort((a, b) => (b.points || 0) - (a.points || 0)).map((player, idx) => (
+                          <tr key={idx} className="border-t border-slate-700 hover:bg-slate-700/50 transition-colors">
+                            <td className="px-4 py-3">
                               <div className="flex items-center gap-2">
-                                <span className="font-semibold text-white">{player.name}</span>
-                                {player.isCaptain && <Badge className="bg-primary text-xs">C</Badge>}
-                                {player.isAssistant && <Badge className="bg-slate-600 text-white text-xs">A</Badge>}
+                                <span className="font-bold text-primary">{player.number}</span>
+                                {player.isCaptain && <Badge className="bg-blue-500 text-xs">C</Badge>}
                               </div>
                             </td>
-                            <td className="px-4 py-4 text-center text-slate-400 text-sm">{player.position === 'Нападающий' ? 'Н' : 'З'}</td>
-                            <td className="px-4 py-4 text-center font-bold text-white">{player.goals}</td>
-                            <td className="px-4 py-4 text-center font-bold text-white">{player.assists}</td>
-                            <td className="px-4 py-4 text-center">
-                              <Badge className="bg-primary text-white font-bold">{player.points}</Badge>
-                            </td>
-                            <td className="px-4 py-4 text-center">
-                              <span className={`font-bold ${(player.plusMinus || 0) >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-                                {(player.plusMinus || 0) >= 0 ? '+' : ''}{player.plusMinus}
-                              </span>
-                            </td>
-                            <td className="px-4 py-4 text-center text-slate-300">{player.pim}</td>
-                            <td className="px-4 py-4 text-center text-slate-300">{player.shots}</td>
+                            <td className="px-4 py-3 font-semibold">{player.name}</td>
+                            <td className="px-4 py-3 text-center text-green-400 font-bold">{player.goals}</td>
+                            <td className="px-4 py-3 text-center text-blue-400 font-bold">{player.assists}</td>
+                            <td className="px-4 py-3 text-center font-bold">{player.points}</td>
+                            <td className="px-4 py-3 text-center text-emerald-400">{player.plusMinus}</td>
+                            <td className="px-4 py-3 text-center text-orange-400">{player.pim}</td>
+                            <td className="px-4 py-3 text-center">{player.shots}</td>
                           </tr>
                         ))}
                       </tbody>
                     </table>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                </Card>
+              </div>
 
-            <div>
-              <h3 className="text-2xl font-bold mb-4 text-white">Вратари</h3>
-              <Card className="bg-slate-800 border-slate-700">
-                <CardContent className="p-0">
+              <div>
+                <h3 className="text-2xl font-bold mb-4 text-white flex items-center gap-2">
+                  <Icon name="Shield" size={24} className="text-primary" />
+                  Защитники
+                </h3>
+                <Card className="bg-slate-800 border-slate-700 overflow-hidden">
                   <div className="overflow-x-auto">
-                    <table className="w-full">
-                      <thead className="bg-slate-900">
+                    <table className="w-full text-left">
+                      <thead className="bg-slate-900 text-slate-300">
                         <tr>
-                          <th className="px-4 py-3 text-left text-xs font-bold text-slate-300 uppercase">#</th>
-                          <th className="px-4 py-3 text-left text-xs font-bold text-slate-300 uppercase">Игрок</th>
-                          <th className="px-4 py-3 text-center text-xs font-bold text-slate-300 uppercase">Сэйвы</th>
-                          <th className="px-4 py-3 text-center text-xs font-bold text-slate-300 uppercase">GAA</th>
-                          <th className="px-4 py-3 text-center text-xs font-bold text-slate-300 uppercase">SV%</th>
+                          <th className="px-4 py-3 font-bold">#</th>
+                          <th className="px-4 py-3 font-bold">Игрок</th>
+                          <th className="px-4 py-3 font-bold text-center">Г</th>
+                          <th className="px-4 py-3 font-bold text-center">П</th>
+                          <th className="px-4 py-3 font-bold text-center">О</th>
+                          <th className="px-4 py-3 font-bold text-center">+/-</th>
+                          <th className="px-4 py-3 font-bold text-center">Штр</th>
+                          <th className="px-4 py-3 font-bold text-center">Бр</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        {players.filter(p => p.position === 'Вратарь').map((player, idx) => (
-                          <tr key={idx} className="border-t border-slate-700 hover:bg-slate-750 transition-colors">
-                            <td className="px-4 py-4">
-                              <div className="w-10 h-10 bg-gradient-to-br from-primary to-blue-700 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                                {player.number}
+                      <tbody className="text-slate-200">
+                        {defensePlayers.sort((a, b) => (b.points || 0) - (a.points || 0)).map((player, idx) => (
+                          <tr key={idx} className="border-t border-slate-700 hover:bg-slate-700/50 transition-colors">
+                            <td className="px-4 py-3">
+                              <div className="flex items-center gap-2">
+                                <span className="font-bold text-primary">{player.number}</span>
+                                {player.isAssistant && <Badge variant="outline" className="border-blue-500 text-blue-400 text-xs">A</Badge>}
                               </div>
                             </td>
-                            <td className="px-4 py-4">
-                              <span className="font-semibold text-white">{player.name}</span>
-                            </td>
-                            <td className="px-4 py-4 text-center font-bold text-white">{player.saves}</td>
-                            <td className="px-4 py-4 text-center font-bold text-green-400">{player.gaa}</td>
-                            <td className="px-4 py-4 text-center">
-                              <Badge className="bg-primary text-white font-bold">{player.svPercent}%</Badge>
-                            </td>
+                            <td className="px-4 py-3 font-semibold">{player.name}</td>
+                            <td className="px-4 py-3 text-center text-green-400 font-bold">{player.goals}</td>
+                            <td className="px-4 py-3 text-center text-blue-400 font-bold">{player.assists}</td>
+                            <td className="px-4 py-3 text-center font-bold">{player.points}</td>
+                            <td className="px-4 py-3 text-center text-emerald-400">{player.plusMinus}</td>
+                            <td className="px-4 py-3 text-center text-orange-400">{player.pim}</td>
+                            <td className="px-4 py-3 text-center">{player.shots}</td>
                           </tr>
                         ))}
                       </tbody>
                     </table>
                   </div>
-                </CardContent>
-              </Card>
+                </Card>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold mb-4 text-white flex items-center gap-2">
+                  <Icon name="Sparkles" size={24} className="text-primary" />
+                  Вратари
+                </h3>
+                <Card className="bg-slate-800 border-slate-700 overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left">
+                      <thead className="bg-slate-900 text-slate-300">
+                        <tr>
+                          <th className="px-4 py-3 font-bold">#</th>
+                          <th className="px-4 py-3 font-bold">Игрок</th>
+                          <th className="px-4 py-3 font-bold text-center">Сэйвы</th>
+                          <th className="px-4 py-3 font-bold text-center">GAA</th>
+                          <th className="px-4 py-3 font-bold text-center">SV%</th>
+                        </tr>
+                      </thead>
+                      <tbody className="text-slate-200">
+                        {goalies.map((player, idx) => (
+                          <tr key={idx} className="border-t border-slate-700 hover:bg-slate-700/50 transition-colors">
+                            <td className="px-4 py-3 font-bold text-primary">{player.number}</td>
+                            <td className="px-4 py-3 font-semibold">{player.name}</td>
+                            <td className="px-4 py-3 text-center text-blue-400 font-bold">{player.saves}</td>
+                            <td className="px-4 py-3 text-center text-green-400 font-bold">{player.gaa}</td>
+                            <td className="px-4 py-3 text-center text-emerald-400 font-bold">{player.svPercent}%</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </Card>
+              </div>
             </div>
           </TabsContent>
 
@@ -311,7 +340,7 @@ export default function Index() {
             </div>
 
             <div className="mt-12 max-w-4xl mx-auto">
-              <Card className="bg-gradient-to-br from-primary/20 to-blue-900/20 border-2 border-primary/40 bg-slate-800">
+              <Card className="bg-gradient-to-br from-primary/10 to-blue-900/10 border-2 border-primary/30">
                 <CardContent className="p-8">
                   <h3 className="text-3xl font-bold mb-6 text-center text-white">Статистика сезона</h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -328,7 +357,7 @@ export default function Index() {
                       <p className="text-sm text-slate-400 uppercase">Голов забито</p>
                     </div>
                     <div className="text-center">
-                      <div className="text-5xl font-bold text-slate-400 mb-2">1</div>
+                      <div className="text-5xl font-bold text-orange-400 mb-2">1</div>
                       <p className="text-sm text-slate-400 uppercase">Голов пропущено</p>
                     </div>
                   </div>
@@ -339,7 +368,7 @@ export default function Index() {
         </Tabs>
       </div>
 
-      <footer className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-t border-slate-800 text-white py-8 mt-16">
+      <footer className="bg-gradient-to-r from-primary via-blue-900 to-slate-950 text-white py-8 mt-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-2">ДИНАМО ШИННИК</h2>
           <p className="text-white/80">МХЛ Б • Сезон 2024/25</p>
