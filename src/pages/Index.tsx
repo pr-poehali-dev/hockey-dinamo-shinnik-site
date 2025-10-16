@@ -18,6 +18,11 @@ interface Player {
   position: string;
   isCaptain?: boolean;
   isAssistant?: boolean;
+  goals?: number;
+  assists?: number;
+  points?: number;
+  saves?: number;
+  svPercent?: number;
   stats: {
     games: number;
     goals: number;
@@ -33,6 +38,31 @@ interface NewsItem {
   preview: string;
   category: string;
 }
+
+interface Standing {
+  position: number;
+  team: string;
+  games: number;
+  wins: number;
+  overtimeWins: number;
+  overtimeLosses: number;
+  losses: number;
+  goalsFor: number;
+  goalsAgainst: number;
+  points: number;
+}
+
+const standings: Standing[] = [
+  { position: 1, team: 'Красная Армия', games: 10, wins: 8, overtimeWins: 0, overtimeLosses: 1, losses: 1, goalsFor: 23, goalsAgainst: 9, points: 17 },
+  { position: 2, team: 'Динамо-Шинник', games: 8, wins: 5, overtimeWins: 1, overtimeLosses: 0, losses: 1, goalsFor: 21, goalsAgainst: 10, points: 14 },
+  { position: 3, team: 'МХК Спартак', games: 5, wins: 4, overtimeWins: 0, overtimeLosses: 0, losses: 1, goalsFor: 12, goalsAgainst: 3, points: 8 },
+  { position: 4, team: 'Академия Михайлова', games: 7, wins: 3, overtimeWins: 1, overtimeLosses: 0, losses: 3, goalsFor: 9, goalsAgainst: 8, points: 8 },
+  { position: 5, team: 'Локо', games: 8, wins: 3, overtimeWins: 0, overtimeLosses: 1, losses: 4, goalsFor: 19, goalsAgainst: 24, points: 7 },
+  { position: 6, team: 'МХК Динамо СПб', games: 8, wins: 1, overtimeWins: 0, overtimeLosses: 1, losses: 4, goalsFor: 10, goalsAgainst: 17, points: 6 },
+  { position: 7, team: 'СКА 19-46', games: 7, wins: 3, overtimeWins: 0, overtimeLosses: 0, losses: 4, goalsFor: 6, goalsAgainst: 12, points: 6 },
+  { position: 8, team: 'Крылья Советов', games: 2, wins: 1, overtimeWins: 0, overtimeLosses: 0, losses: 1, goalsFor: 2, goalsAgainst: 2, points: 2 },
+  { position: 9, team: 'Алмаз', games: 9, wins: 0, overtimeWins: 0, overtimeLosses: 0, losses: 9, goalsFor: 2, goalsAgainst: 29, points: 0 },
+];
 
 const matches: Match[] = [
   { date: '25 сентября', time: '18:30', opponent: 'Белые медведи', isHome: false, result: '3:0' },
@@ -59,6 +89,9 @@ const players: Player[] = [
     number: '99', 
     position: 'Нападающий', 
     isCaptain: true,
+    goals: 2,
+    assists: 1,
+    points: 3,
     stats: { games: 2, goals: 2, assists: 1, points: 3, plusMinus: 3 }
   },
   { 
@@ -66,18 +99,27 @@ const players: Player[] = [
     number: '19', 
     position: 'Защитник', 
     isAssistant: true,
+    goals: 0,
+    assists: 2,
+    points: 2,
     stats: { games: 2, goals: 0, assists: 2, points: 2, plusMinus: 2 }
   },
   { 
     name: 'quantum', 
     number: '53', 
     position: 'Нападающий',
+    goals: 1,
+    assists: 0,
+    points: 1,
     stats: { games: 2, goals: 1, assists: 0, points: 1, plusMinus: 1 }
   },
   { 
     name: 'gazash', 
     number: '21', 
     position: 'Нападающий',
+    goals: 1,
+    assists: 1,
+    points: 2,
     stats: { games: 2, goals: 1, assists: 1, points: 2, plusMinus: 2 }
   },
   { 
@@ -85,30 +127,44 @@ const players: Player[] = [
     number: '5', 
     position: 'Защитник', 
     isAssistant: true,
+    goals: 0,
+    assists: 1,
+    points: 1,
     stats: { games: 2, goals: 0, assists: 1, points: 1, plusMinus: 1 }
   },
   { 
     name: 'крико', 
     number: '54', 
     position: 'Защитник',
+    goals: 0,
+    assists: 0,
+    points: 0,
     stats: { games: 2, goals: 0, assists: 0, points: 0, plusMinus: 0 }
   },
   { 
     name: 'Estriper', 
     number: '3', 
     position: 'Защитник',
+    goals: 1,
+    assists: 0,
+    points: 1,
     stats: { games: 2, goals: 1, assists: 0, points: 1, plusMinus: 2 }
   },
   { 
     name: 'Cago', 
     number: '13', 
     position: 'Нападающий',
+    goals: 0,
+    assists: 0,
+    points: 0,
     stats: { games: 2, goals: 0, assists: 0, points: 0, plusMinus: 0 }
   },
   { 
     name: 'Николаич', 
     number: '35', 
     position: 'Вратарь',
+    saves: 45,
+    svPercent: 97.8,
     stats: { games: 2, goals: 0, assists: 0, points: 0, plusMinus: 0 }
   },
 ];
@@ -127,10 +183,10 @@ const news: NewsItem[] = [
     category: 'Результаты'
   },
   {
-    title: 'Morfyy - лидер по набранным очкам',
+    title: 'Динамо-Шинник на 2-м месте в Западной конференции!',
     date: '3 октября 2024',
-    preview: 'Капитан команды набрал 3 очка (2+1) за первые два матча сезона и возглавил внутреннюю статистику клуба.',
-    category: 'Статистика'
+    preview: 'После двух побед команда занимает второе место в турнирной таблице с 14 очками, уступая только Красной Армии.',
+    category: 'Турнир'
   },
   {
     title: 'Впереди серия домашних игр',
@@ -170,10 +226,10 @@ export default function Index() {
                 МХЛ Б 2024/25
               </Badge>
               <Badge className="bg-green-500 text-white px-6 py-3 text-lg hover:bg-green-600">
-                2 победы
+                2 место в турнире
               </Badge>
               <Badge className="bg-primary/80 backdrop-blur text-white px-6 py-3 text-lg">
-                5 голов забито
+                14 очков
               </Badge>
             </div>
           </div>
@@ -184,21 +240,25 @@ export default function Index() {
 
       <div className="container mx-auto px-4 -mt-20 relative z-20 pb-16">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-4 h-14 bg-card shadow-lg mb-8 border border-border">
-            <TabsTrigger value="news" className="text-base font-bold">
-              <Icon name="Newspaper" size={20} className="mr-2" />
+          <TabsList className="grid w-full max-w-5xl mx-auto grid-cols-5 h-14 bg-card shadow-lg mb-8 border border-border">
+            <TabsTrigger value="news" className="text-sm md:text-base font-bold">
+              <Icon name="Newspaper" size={20} className="mr-1 md:mr-2" />
               НОВОСТИ
             </TabsTrigger>
-            <TabsTrigger value="matches" className="text-base font-bold">
-              <Icon name="Calendar" size={20} className="mr-2" />
+            <TabsTrigger value="standings" className="text-sm md:text-base font-bold">
+              <Icon name="Trophy" size={20} className="mr-1 md:mr-2" />
+              ТУРНИР
+            </TabsTrigger>
+            <TabsTrigger value="matches" className="text-sm md:text-base font-bold">
+              <Icon name="Calendar" size={20} className="mr-1 md:mr-2" />
               МАТЧИ
             </TabsTrigger>
-            <TabsTrigger value="players" className="text-base font-bold">
-              <Icon name="Users" size={20} className="mr-2" />
+            <TabsTrigger value="players" className="text-sm md:text-base font-bold">
+              <Icon name="Users" size={20} className="mr-1 md:mr-2" />
               СОСТАВ
             </TabsTrigger>
-            <TabsTrigger value="stats" className="text-base font-bold">
-              <Icon name="BarChart3" size={20} className="mr-2" />
+            <TabsTrigger value="stats" className="text-sm md:text-base font-bold">
+              <Icon name="BarChart3" size={20} className="mr-1 md:mr-2" />
               СТАТИСТИКА
             </TabsTrigger>
           </TabsList>
@@ -223,6 +283,87 @@ export default function Index() {
                 </Card>
               ))}
             </div>
+          </TabsContent>
+
+          <TabsContent value="standings" className="animate-fade-in">
+            <h2 className="text-4xl font-bold mb-6 text-center">Западная конференция МХЛ Б</h2>
+            <Card className="max-w-6xl mx-auto border-2 border-primary/30">
+              <CardHeader className="bg-gradient-to-r from-primary/20 to-blue-600/20">
+                <CardTitle className="text-2xl text-center">Турнирная таблица • Сезон 2024/25</CardTitle>
+              </CardHeader>
+              <CardContent className="p-0">
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-muted/50">
+                      <tr>
+                        <th className="px-3 py-3 text-left font-bold text-sm">#</th>
+                        <th className="px-3 py-3 text-left font-bold text-sm">Команда</th>
+                        <th className="px-3 py-3 text-center font-bold text-sm">И</th>
+                        <th className="px-3 py-3 text-center font-bold text-sm">В</th>
+                        <th className="px-3 py-3 text-center font-bold text-sm">ВО</th>
+                        <th className="px-3 py-3 text-center font-bold text-sm">ПО</th>
+                        <th className="px-3 py-3 text-center font-bold text-sm">П</th>
+                        <th className="px-3 py-3 text-center font-bold text-sm">ШЗ</th>
+                        <th className="px-3 py-3 text-center font-bold text-sm">ШП</th>
+                        <th className="px-3 py-3 text-center font-bold text-sm bg-primary/20">О</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {standings.map((team, idx) => (
+                        <tr 
+                          key={idx} 
+                          className={`border-b border-border transition-colors ${
+                            team.team === 'Динамо-Шинник' 
+                              ? 'bg-primary/10 hover:bg-primary/20 font-semibold' 
+                              : 'hover:bg-muted/30'
+                          }`}
+                        >
+                          <td className="px-3 py-4">
+                            <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
+                              team.position <= 3 
+                                ? 'bg-gradient-to-br from-primary to-blue-600 text-white' 
+                                : 'bg-muted text-muted-foreground'
+                            }`}>
+                              {team.position}
+                            </div>
+                          </td>
+                          <td className="px-3 py-4">
+                            <div className="flex items-center gap-2">
+                              {team.team === 'Динамо-Шинник' && (
+                                <Icon name="Star" size={16} className="text-primary" />
+                              )}
+                              <span className="font-semibold">{team.team}</span>
+                            </div>
+                          </td>
+                          <td className="px-3 py-4 text-center text-muted-foreground">{team.games}</td>
+                          <td className="px-3 py-4 text-center text-green-500 font-semibold">{team.wins}</td>
+                          <td className="px-3 py-4 text-center text-green-400">{team.overtimeWins}</td>
+                          <td className="px-3 py-4 text-center text-orange-400">{team.overtimeLosses}</td>
+                          <td className="px-3 py-4 text-center text-red-500 font-semibold">{team.losses}</td>
+                          <td className="px-3 py-4 text-center text-blue-400">{team.goalsFor}</td>
+                          <td className="px-3 py-4 text-center text-orange-500">{team.goalsAgainst}</td>
+                          <td className="px-3 py-4 text-center bg-primary/10">
+                            <Badge className="bg-primary font-bold">{team.points}</Badge>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="p-4 bg-muted/30 border-t border-border">
+                  <div className="flex flex-wrap gap-4 text-xs text-muted-foreground">
+                    <span><strong>И</strong> - Игры</span>
+                    <span><strong>В</strong> - Победы</span>
+                    <span><strong>ВО</strong> - Победы в овертайме</span>
+                    <span><strong>ПО</strong> - Поражения в овертайме</span>
+                    <span><strong>П</strong> - Поражения</span>
+                    <span><strong>ШЗ</strong> - Шайбы забитые</span>
+                    <span><strong>ШП</strong> - Шайбы пропущенные</span>
+                    <span><strong>О</strong> - Очки</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </TabsContent>
 
           <TabsContent value="matches" className="space-y-4 animate-fade-in">
@@ -299,9 +440,7 @@ export default function Index() {
               {players.map((player, idx) => {
                 const getInitials = (name: string) => {
                   const parts = name.split(' ');
-                  if (parts.length >= 2) {
-                    return parts[0][0] + parts[1][0];
-                  }
+                  if (parts.length >= 2) return parts[0][0] + parts[1][0];
                   return name.substring(0, 2).toUpperCase();
                 };
                 
@@ -398,19 +537,19 @@ export default function Index() {
                 <CardContent>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="text-center p-4 bg-muted/50 rounded-lg">
-                      <div className="text-4xl font-bold text-primary mb-2">2</div>
+                      <div className="text-4xl font-bold text-primary mb-2">8</div>
                       <p className="text-sm text-muted-foreground uppercase">Игр сыграно</p>
                     </div>
                     <div className="text-center p-4 bg-muted/50 rounded-lg">
-                      <div className="text-4xl font-bold text-green-500 mb-2">2</div>
+                      <div className="text-4xl font-bold text-green-500 mb-2">6</div>
                       <p className="text-sm text-muted-foreground uppercase">Побед</p>
                     </div>
                     <div className="text-center p-4 bg-muted/50 rounded-lg">
-                      <div className="text-4xl font-bold text-primary mb-2">5</div>
+                      <div className="text-4xl font-bold text-primary mb-2">21</div>
                       <p className="text-sm text-muted-foreground uppercase">Голов забито</p>
                     </div>
                     <div className="text-center p-4 bg-muted/50 rounded-lg">
-                      <div className="text-4xl font-bold text-orange-500 mb-2">1</div>
+                      <div className="text-4xl font-bold text-orange-500 mb-2">10</div>
                       <p className="text-sm text-muted-foreground uppercase">Голов пропущено</p>
                     </div>
                   </div>
@@ -447,84 +586,6 @@ export default function Index() {
                 </CardContent>
               </Card>
             </div>
-
-            <Card className="border-2 border-primary/50">
-              <CardHeader className="bg-gradient-to-r from-primary/20 to-blue-600/20">
-                <CardTitle className="text-2xl text-center">Детальная статистика игроков</CardTitle>
-              </CardHeader>
-              <CardContent className="p-0">
-                <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead className="bg-muted/50">
-                      <tr>
-                        <th className="px-4 py-3 text-left font-bold">#</th>
-                        <th className="px-4 py-3 text-left font-bold">Игрок</th>
-                        <th className="px-4 py-3 text-left font-bold">Позиция</th>
-                        <th className="px-4 py-3 text-center font-bold">И</th>
-                        <th className="px-4 py-3 text-center font-bold">Г</th>
-                        <th className="px-4 py-3 text-center font-bold">П</th>
-                        <th className="px-4 py-3 text-center font-bold">О</th>
-                        <th className="px-4 py-3 text-center font-bold">+/-</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {players.filter(p => p.position !== 'Вратарь').map((player, idx) => (
-                        <tr key={idx} className="border-b border-border hover:bg-muted/30 transition-colors">
-                          <td className="px-4 py-3">
-                            <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center font-bold text-sm">
-                              {player.number}
-                            </div>
-                          </td>
-                          <td className="px-4 py-3">
-                            <div className="flex items-center gap-2">
-                              <span className="font-bold">{player.name}</span>
-                              {player.isCaptain && <Badge className="text-xs bg-primary">C</Badge>}
-                              {player.isAssistant && <Badge variant="outline" className="text-xs">A</Badge>}
-                            </div>
-                          </td>
-                          <td className="px-4 py-3 text-muted-foreground">{player.position}</td>
-                          <td className="px-4 py-3 text-center font-semibold">{player.stats.games}</td>
-                          <td className="px-4 py-3 text-center font-semibold text-primary">{player.stats.goals}</td>
-                          <td className="px-4 py-3 text-center font-semibold text-green-500">{player.stats.assists}</td>
-                          <td className="px-4 py-3 text-center font-bold text-lg">{player.stats.points}</td>
-                          <td className={`px-4 py-3 text-center font-semibold ${
-                            player.stats.plusMinus > 0 ? 'text-green-500' : 
-                            player.stats.plusMinus < 0 ? 'text-red-500' : 'text-muted-foreground'
-                          }`}>
-                            {player.stats.plusMinus > 0 ? '+' : ''}{player.stats.plusMinus}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-                
-                <div className="p-6 bg-muted/30 border-t border-border">
-                  <h4 className="font-bold mb-3 flex items-center gap-2">
-                    <Icon name="Shield" className="text-primary" />
-                    Вратари
-                  </h4>
-                  {players.filter(p => p.position === 'Вратарь').map((player, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-4 bg-card rounded-lg">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl">
-                          {player.number}
-                        </div>
-                        <div>
-                          <p className="font-bold text-lg">{player.name}</p>
-                          <p className="text-sm text-muted-foreground">{player.position}</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-3xl font-bold text-green-500">100%</p>
-                        <p className="text-sm text-muted-foreground">Процент отраженных бросков</p>
-                        <p className="text-xs text-muted-foreground mt-1">2 игры, 0 пропущенных шайб</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
           </TabsContent>
         </Tabs>
       </div>
@@ -532,7 +593,7 @@ export default function Index() {
       <footer className="bg-card border-t border-border py-8 mt-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-2">ДИНАМО ШИННИК</h2>
-          <p className="text-muted-foreground">МХЛ Б • Сезон 2024/25</p>
+          <p className="text-muted-foreground">МХЛ Б • Сезон 2024/25 • 2 место в Западной конференции</p>
           <p className="text-sm text-muted-foreground mt-4">Время московское</p>
         </div>
       </footer>
