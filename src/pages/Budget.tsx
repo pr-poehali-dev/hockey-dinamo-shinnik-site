@@ -3,7 +3,16 @@ import Icon from '@/components/ui/icon';
 
 export default function Budget() {
   const income = 425500;
-  const expenses = 0;
+  
+  const expenseItems = [
+    { name: 'Аренда льда', amount: 150000, icon: 'Snowflake' },
+    { name: 'Экипировка', amount: 80000, icon: 'ShieldCheck' },
+    { name: 'Зарплаты игроков', amount: 120000, icon: 'Users' },
+    { name: 'Транспорт', amount: 45000, icon: 'Bus' },
+    { name: 'Медицинское обслуживание', amount: 30500, icon: 'Heart' },
+  ];
+  
+  const expenses = expenseItems.reduce((sum, item) => sum + item.amount, 0);
   const balance = income - expenses;
 
   const Snowflake = ({ className = "" }: { className?: string }) => (
@@ -69,11 +78,23 @@ export default function Budget() {
               <Snowflake className="bottom-[15%] left-[70%] text-2xl" />
             </div>
             <div className="relative">
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-6">
                 <Icon name="TrendingDown" size={32} />
                 <h3 className="text-3xl font-bold">РАСХОД</h3>
               </div>
-              <div className="text-6xl font-bold">{expenses.toLocaleString('ru-RU')} ₽</div>
+              <div className="text-6xl font-bold mb-6">{expenses.toLocaleString('ru-RU')} ₽</div>
+              
+              <div className="space-y-3 mt-6 pt-6 border-t border-white/20">
+                {expenseItems.map((item, index) => (
+                  <div key={index} className="flex items-center justify-between text-white/90">
+                    <div className="flex items-center gap-2">
+                      <Icon name={item.icon} size={20} />
+                      <span className="text-lg">{item.name}</span>
+                    </div>
+                    <span className="text-xl font-semibold">{item.amount.toLocaleString('ru-RU')} ₽</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
