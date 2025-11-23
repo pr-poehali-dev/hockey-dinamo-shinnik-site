@@ -58,8 +58,7 @@ const standings: Standing[] = [
   { position: 14, team: 'Неман', games: 8, wins: 3, overtimeWins: 0, overtimeLosses: 0, losses: 5, goalsFor: 8, goalsAgainst: 6, points: 6 },
   { position: 15, team: 'Спартак', games: 9, wins: 3, overtimeWins: 0, overtimeLosses: 0, losses: 6, goalsFor: 7, goalsAgainst: 13, points: 6 },
   { position: 16, team: 'Автомобилист', games: 9, wins: 2, overtimeWins: 0, overtimeLosses: 0, losses: 7, goalsFor: 15, goalsAgainst: 6, points: 4 },
-  { position: 17, team: 'Динамо Минск', games: 7, wins: 2, overtimeWins: 0, overtimeLosses: 0, losses: 5, goalsFor: 4, goalsAgainst: 2, points: 4 },
-  { position: 18, team: 'Витязь', games: 8, wins: 1, overtimeWins: 0, overtimeLosses: 0, losses: 7, goalsFor: 5, goalsAgainst: 24, points: 2 },
+  { position: 17, team: 'Динамо Минск', games: 8, wins: 1, overtimeWins: 0, overtimeLosses: 0, losses: 7, goalsFor: 5, goalsAgainst: 24, points: 2 },
 ];
 
 const topScorers: Player[] = [
