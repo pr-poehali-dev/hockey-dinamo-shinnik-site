@@ -44,8 +44,8 @@ interface BettingOdds {
 const standings: Standing[] = [
   { position: 1, team: 'Торпедо', games: 10, wins: 9, overtimeWins: 0, overtimeLosses: 0, losses: 1, goalsFor: 30, goalsAgainst: 12, points: 18 },
   { position: 2, team: 'Салават Юлаев', games: 10, wins: 6, overtimeWins: 0, overtimeLosses: 2, losses: 2, goalsFor: 22, goalsAgainst: 14, points: 14 },
-  { position: 3, team: 'Светлые Ключи', games: 10, wins: 7, overtimeWins: 0, overtimeLosses: 0, losses: 3, goalsFor: 38, goalsAgainst: 6, points: 14 },
-  { position: 4, team: 'Арлана', games: 10, wins: 7, overtimeWins: 0, overtimeLosses: 0, losses: 3, goalsFor: 15, goalsAgainst: 11, points: 14 },
+  { position: 3, team: 'Аризона', games: 10, wins: 7, overtimeWins: 0, overtimeLosses: 0, losses: 3, goalsFor: 38, goalsAgainst: 6, points: 14 },
+  { position: 4, team: 'Адмирал', games: 10, wins: 7, overtimeWins: 0, overtimeLosses: 0, losses: 3, goalsFor: 15, goalsAgainst: 11, points: 14 },
   { position: 5, team: 'Челны', games: 10, wins: 6, overtimeWins: 0, overtimeLosses: 0, losses: 4, goalsFor: 18, goalsAgainst: 13, points: 12 },
   { position: 6, team: 'СКА', games: 10, wins: 5, overtimeWins: 0, overtimeLosses: 2, losses: 3, goalsFor: 17, goalsAgainst: 15, points: 12 },
   { position: 7, team: 'Сибирь', games: 10, wins: 5, overtimeWins: 0, overtimeLosses: 0, losses: 5, goalsFor: 21, goalsAgainst: 13, points: 10 },
