@@ -53,15 +53,18 @@ interface Standing {
 }
 
 const standings: Standing[] = [
-  { position: 1, team: 'Красная Армия', games: 10, wins: 8, overtimeWins: 0, overtimeLosses: 1, losses: 1, goalsFor: 23, goalsAgainst: 9, points: 17 },
-  { position: 2, team: 'Динамо-Шинник', games: 8, wins: 5, overtimeWins: 1, overtimeLosses: 1, losses: 1, goalsFor: 20, goalsAgainst: 10, points: 16 },
-  { position: 3, team: 'МХК Спартак', games: 5, wins: 4, overtimeWins: 0, overtimeLosses: 0, losses: 1, goalsFor: 12, goalsAgainst: 3, points: 8 },
-  { position: 4, team: 'Академия Михайлова', games: 7, wins: 3, overtimeWins: 1, overtimeLosses: 0, losses: 3, goalsFor: 9, goalsAgainst: 8, points: 8 },
-  { position: 5, team: 'Локо', games: 8, wins: 3, overtimeWins: 0, overtimeLosses: 1, losses: 4, goalsFor: 19, goalsAgainst: 24, points: 7 },
-  { position: 6, team: 'МХК Динамо СПб', games: 8, wins: 1, overtimeWins: 0, overtimeLosses: 1, losses: 4, goalsFor: 10, goalsAgainst: 17, points: 6 },
-  { position: 7, team: 'СКА 19-46', games: 7, wins: 3, overtimeWins: 0, overtimeLosses: 0, losses: 4, goalsFor: 6, goalsAgainst: 12, points: 6 },
-  { position: 8, team: 'Крылья Советов', games: 2, wins: 1, overtimeWins: 0, overtimeLosses: 0, losses: 1, goalsFor: 2, goalsAgainst: 2, points: 2 },
-  { position: 9, team: 'Алмаз', games: 9, wins: 0, overtimeWins: 0, overtimeLosses: 0, losses: 9, goalsFor: 2, goalsAgainst: 29, points: 0 },
+  { position: 1, team: 'Boston Bruins', games: 10, wins: 8, overtimeWins: 1, overtimeLosses: 0, losses: 1, goalsFor: 35, goalsAgainst: 18, points: 25 },
+  { position: 2, team: 'Pittsburgh Penguins', games: 10, wins: 7, overtimeWins: 1, overtimeLosses: 1, losses: 1, goalsFor: 32, goalsAgainst: 20, points: 23 },
+  { position: 3, team: 'Chicago Blackhawks', games: 10, wins: 6, overtimeWins: 2, overtimeLosses: 0, losses: 2, goalsFor: 28, goalsAgainst: 22, points: 22 },
+  { position: 4, team: 'Nashville Predators', games: 10, wins: 6, overtimeWins: 0, overtimeLosses: 2, losses: 2, goalsFor: 26, goalsAgainst: 23, points: 20 },
+  { position: 5, team: 'Vegas Golden Knights', games: 10, wins: 5, overtimeWins: 1, overtimeLosses: 1, losses: 3, goalsFor: 29, goalsAgainst: 26, points: 18 },
+  { position: 6, team: 'Tampa Bay Lightning', games: 10, wins: 5, overtimeWins: 0, overtimeLosses: 2, losses: 3, goalsFor: 27, goalsAgainst: 25, points: 17 },
+  { position: 7, team: 'Toronto Maple Leafs', games: 10, wins: 4, overtimeWins: 1, overtimeLosses: 1, losses: 4, goalsFor: 24, goalsAgainst: 27, points: 15 },
+  { position: 8, team: 'Florida Panthers', games: 10, wins: 4, overtimeWins: 0, overtimeLosses: 1, losses: 5, goalsFor: 22, goalsAgainst: 28, points: 13 },
+  { position: 9, team: 'Colorado Avalanche', games: 10, wins: 3, overtimeWins: 1, overtimeLosses: 0, losses: 6, goalsFor: 20, goalsAgainst: 30, points: 11 },
+  { position: 10, team: 'Montreal Canadiens', games: 10, wins: 3, overtimeWins: 0, overtimeLosses: 1, losses: 6, goalsFor: 18, goalsAgainst: 29, points: 10 },
+  { position: 11, team: 'Detroit Red Wings', games: 10, wins: 2, overtimeWins: 0, overtimeLosses: 2, losses: 6, goalsFor: 16, goalsAgainst: 32, points: 8 },
+  { position: 12, team: 'Arizona Coyotes', games: 10, wins: 1, overtimeWins: 0, overtimeLosses: 1, losses: 8, goalsFor: 12, goalsAgainst: 35, points: 4 },
 ];
 
 const matches: Match[] = [
@@ -169,28 +172,28 @@ const players: Player[] = [
 
 const news: NewsItem[] = [
   {
-    title: 'Динамо Шинник одержал вторую победу подряд!',
-    date: '2 октября 2024',
-    preview: 'В напряженном матче против Кузнецких Медведей наша команда одержала победу со счетом 2:1. Решающую шайбу забросил Morfyy на 58-й минуте.',
+    title: 'Boston Bruins берут старт с победы!',
+    date: '23 ноября 2024',
+    preview: 'В стартовом матче сезона IHL команда Boston Bruins уверенно обыграла Florida Panthers со счетом 4:1. Хет-трик оформил нападающий McDavid.',
     category: 'Матчи'
   },
   {
-    title: 'Уверенный старт сезона VFHL',
-    date: '26 сентября 2024',
-    preview: 'Команда разгромила Белых медведей со счетом 3:0 в первом матче сезона. Отличная игра в обороне и уверенные действия вратаря Николаича.',
+    title: 'Рекордная посещаемость на матче IHL',
+    date: '20 ноября 2024',
+    preview: 'Встреча Pittsburgh Penguins и Chicago Blackhawks собрала рекордные 18,500 зрителей. Матч завершился победой Penguins в овертайме 3:2.',
+    category: 'Новости'
+  },
+  {
+    title: 'Vegas Golden Knights продолжают серию побед',
+    date: '18 ноября 2024',
+    preview: 'Vegas одержали четвертую победу подряд, обыграв Detroit Red Wings 5:2. Команда показывает отличную атакующую игру в начале сезона.',
     category: 'Результаты'
   },
   {
-    title: 'Динамо-Шинник на 2-м месте в Западной конференции!',
-    date: '16 октября 2024',
-    preview: 'После 6 побед в 8 играх команда занимает второе место в турнирной таблице с 16 очками, уступая только Красной Армии. Осталось 9 игр регулярки!',
+    title: 'Старт сезона IHL 2024/25!',
+    date: '15 ноября 2024',
+    preview: 'Международная хоккейная лига IHL стартовала с захватывающих матчей. 12 команд борются за главный трофей сезона. Первыми лидерами стали Boston Bruins и Pittsburgh Penguins.',
     category: 'Турнир'
-  },
-  {
-    title: 'Уверенная серия из 6 побед!',
-    date: '16 октября 2024',
-    preview: 'Команда одержала 6 побед в 8 играх регулярки! Особенно яркими были победы над Локо в овертайме 6:5 и сухая победа 5:0 над Алмазом. Вратари Unnamed и Morfyy оформили по сухарю каждый.',
-    category: 'Результаты'
   }
 ];
 
@@ -207,30 +210,30 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="relative h-[70vh] bg-gradient-to-br from-primary via-blue-600 to-blue-800 overflow-hidden">
-        <div className="absolute inset-0 bg-black/40"></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIuNSIgb3BhY2l0eT0iLjEiLz48L2c+PC9zdmc+')] opacity-10"></div>
+      <div className="relative h-[70vh] bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
+        <div className="absolute inset-0 bg-primary/10"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZCIgc3Ryb2tlLXdpZHRoPSIuNSIgb3BhY2l0eT0iLjEiLz48L2c+PC9zdmc+')] opacity-10"></div>
         
         <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
           <div className="animate-fade-in">
-            <h1 className="text-7xl md:text-9xl font-bold text-white mb-4 tracking-wider drop-shadow-2xl">
-              ДИНАМО ШИННИК
+            <h1 className="text-7xl md:text-9xl font-bold text-primary mb-4 tracking-wider drop-shadow-2xl">
+              IHL
             </h1>
-            <p className="text-2xl md:text-3xl text-white/90 mb-8 font-medium">
-              Хоккейный клуб
+            <p className="text-2xl md:text-3xl text-white mb-8 font-medium">
+              International Hockey League
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Badge className="bg-white text-primary px-6 py-3 text-lg hover:bg-white/90">
-                VFHL 2024/25
+              <Badge className="bg-primary text-black px-6 py-3 text-lg hover:bg-primary/90 font-bold">
+                Сезон 2024/25
               </Badge>
-              <Badge className="bg-green-500 text-white px-6 py-3 text-lg hover:bg-green-600">
-                2 место в турнире
+              <Badge className="bg-white text-black px-6 py-3 text-lg hover:bg-white/90 font-bold">
+                12 команд
               </Badge>
-              <Badge className="bg-primary/80 backdrop-blur text-white px-6 py-3 text-lg">
-                16 очков
+              <Badge className="bg-primary/80 backdrop-blur text-black px-6 py-3 text-lg font-bold">
+                Pro League
               </Badge>
-              <Badge className="bg-yellow-500 text-white px-6 py-3 text-lg hover:bg-yellow-600">
-                6 побед / 8 игр
+              <Badge className="bg-white/80 backdrop-blur text-black px-6 py-3 text-lg font-bold">
+                82 игры
               </Badge>
             </div>
           </div>
