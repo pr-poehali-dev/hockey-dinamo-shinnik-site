@@ -73,43 +73,48 @@ const topScorers: Player[] = [
 ];
 
 const bettingOdds: BettingOdds[] = [
-  { team: 'Boston Bruins', championship: '3.50', playoffs: '1.25', topScorer: '5.00' },
-  { team: 'Pittsburgh Penguins', championship: '4.20', playoffs: '1.35', topScorer: '6.50' },
-  { team: 'Chicago Blackhawks', championship: '5.00', playoffs: '1.50', topScorer: '7.00' },
-  { team: 'Nashville Predators', championship: '6.50', playoffs: '1.65', topScorer: '8.50' },
-  { team: 'Vegas Golden Knights', championship: '7.00', playoffs: '1.80', topScorer: '9.00' },
-  { team: 'Tampa Bay Lightning', championship: '8.00', playoffs: '2.00', topScorer: '10.00' },
-  { team: 'Toronto Maple Leafs', championship: '10.00', playoffs: '2.50', topScorer: '12.00' },
-  { team: 'Florida Panthers', championship: '15.00', playoffs: '3.50', topScorer: '15.00' },
-  { team: 'Colorado Avalanche', championship: '20.00', playoffs: '5.00', topScorer: '18.00' },
-  { team: 'Montreal Canadiens', championship: '25.00', playoffs: '6.00', topScorer: '20.00' },
-  { team: 'Detroit Red Wings', championship: '40.00', playoffs: '10.00', topScorer: '30.00' },
-  { team: 'Arizona Coyotes', championship: '100.00', playoffs: '25.00', topScorer: '50.00' },
+  { team: 'Торпедо', championship: '2.50', playoffs: '1.15', topScorer: '4.00' },
+  { team: 'Салават Юлаев', championship: '3.80', playoffs: '1.35', topScorer: '5.50' },
+  { team: 'Аризона', championship: '4.50', playoffs: '1.50', topScorer: '6.00' },
+  { team: 'Адмирал', championship: '5.00', playoffs: '1.65', topScorer: '7.00' },
+  { team: 'СКА', championship: '6.50', playoffs: '1.80', topScorer: '8.00' },
+  { team: 'Сибирь', championship: '7.00', playoffs: '2.00', topScorer: '9.00' },
+  { team: 'Металлург', championship: '10.00', playoffs: '2.50', topScorer: '12.00' },
+  { team: 'Динамо Рига', championship: '12.00', playoffs: '3.00', topScorer: '14.00' },
+  { team: 'Слован', championship: '15.00', playoffs: '3.50', topScorer: '16.00' },
+  { team: 'Кристалл', championship: '18.00', playoffs: '4.00', topScorer: '18.00' },
+  { team: 'Йокерит', championship: '20.00', playoffs: '4.50', topScorer: '20.00' },
+  { team: 'Северсталь', championship: '25.00', playoffs: '5.00', topScorer: '22.00' },
+  { team: 'Ак Барс', championship: '30.00', playoffs: '6.00', topScorer: '25.00' },
+  { team: 'Неман', championship: '35.00', playoffs: '7.00', topScorer: '28.00' },
+  { team: 'Спартак', championship: '40.00', playoffs: '8.00', topScorer: '30.00' },
+  { team: 'Автомобилист', championship: '60.00', playoffs: '12.00', topScorer: '40.00' },
+  { team: 'Динамо Минск', championship: '100.00', playoffs: '20.00', topScorer: '60.00' },
 ];
 
 const news: NewsItem[] = [
   {
-    title: 'Boston Bruins берут старт с победы!',
+    title: 'Торпедо одержало уверенную победу!',
     date: '23 ноября 2024',
-    preview: 'В стартовом матче сезона IHL команда Boston Bruins уверенно обыграла Florida Panthers со счетом 4:1. Хет-трик оформил нападающий McDavid.',
+    preview: 'Лидер турнирной таблицы Торпедо обыграл Динамо Минск со счетом 5:1. Команда продолжает уверенно держать первое место с 18 очками.',
     category: 'Матчи'
   },
   {
-    title: 'Рекордная посещаемость на матче IHL',
+    title: 'Салават Юлаев вышел на второе место',
     date: '20 ноября 2024',
-    preview: 'Встреча Pittsburgh Penguins и Chicago Blackhawks собрала рекордные 18,500 зрителей. Матч завершился победой Penguins в овертайме 3:2.',
+    preview: 'После победы над Автомобилистом в овертайме 3:2, Салават Юлаев поднялся на вторую строчку турнирной таблицы с 14 очками.',
     category: 'Новости'
   },
   {
-    title: 'Vegas Golden Knights продолжают серию побед',
+    title: 'Аризона показывает отличную форму',
     date: '18 ноября 2024',
-    preview: 'Vegas одержали четвертую победу подряд, обыграв Detroit Red Wings 5:2. Команда показывает отличную атакующую игру в начале сезона.',
+    preview: 'Аризона разгромила Спартак со счетом 6:1. Команда набрала 38 заброшенных шайб за сезон - лучший показатель в лиге.',
     category: 'Результаты'
   },
   {
     title: 'Старт сезона IHL 2024/25!',
     date: '15 ноября 2024',
-    preview: 'Международная хоккейная лига IHL стартовала с захватывающих матчей. 12 команд борются за главный трофей сезона. Первыми лидерами стали Boston Bruins и Pittsburgh Penguins.',
+    preview: 'Международная хоккейная лига IHL стартовала с захватывающих матчей. 17 команд борются за главный трофей сезона. Лидерами стали Торпедо и Салават Юлаев.',
     category: 'Турнир'
   }
 ];
@@ -136,13 +141,13 @@ export default function Index() {
                 Сезон 2024/25
               </Badge>
               <Badge className="bg-white text-black px-6 py-3 text-lg hover:bg-white/90 font-bold">
-                12 команд
+                17 команд
               </Badge>
               <Badge className="bg-primary/80 backdrop-blur text-black px-6 py-3 text-lg font-bold">
                 Pro League
               </Badge>
               <Badge className="bg-white/80 backdrop-blur text-black px-6 py-3 text-lg font-bold">
-                82 игры
+                25 игр
               </Badge>
             </div>
           </div>
@@ -153,7 +158,7 @@ export default function Index() {
 
       <div className="container mx-auto px-4 -mt-20 relative z-20 pb-16">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-4 h-14 bg-card shadow-lg mb-8 border border-primary">
+          <TabsList className="grid w-full max-w-3xl mx-auto grid-cols-3 h-14 bg-card shadow-lg mb-8 border border-primary">
             <TabsTrigger value="news" className="text-sm md:text-base font-bold">
               <Icon name="Newspaper" size={20} className="mr-1 md:mr-2" />
               НОВОСТИ
@@ -165,10 +170,6 @@ export default function Index() {
             <TabsTrigger value="betting" className="text-sm md:text-base font-bold">
               <Icon name="TrendingUp" size={20} className="mr-1 md:mr-2" />
               СТАВКИ
-            </TabsTrigger>
-            <TabsTrigger value="scorers" className="text-sm md:text-base font-bold">
-              <Icon name="Target" size={20} className="mr-1 md:mr-2" />
-              БОМБАРДИРЫ
             </TabsTrigger>
           </TabsList>
 
@@ -308,60 +309,7 @@ export default function Index() {
             </Card>
           </TabsContent>
 
-          <TabsContent value="scorers" className="animate-fade-in">
-            <h2 className="text-4xl font-bold mb-6 text-center text-primary">Лучшие бомбардиры IHL</h2>
-            <Card className="max-w-5xl mx-auto border-2 border-primary/50">
-              <CardHeader className="bg-gradient-to-r from-primary/20 to-primary/10">
-                <CardTitle className="text-2xl text-center">Топ-10 по очкам • Сезон 2024/25</CardTitle>
-              </CardHeader>
-              <CardContent className="p-0">
-                <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead className="bg-primary/20">
-                      <tr>
-                        <th className="px-3 py-3 text-left font-bold">#</th>
-                        <th className="px-3 py-3 text-left font-bold">Игрок</th>
-                        <th className="px-3 py-3 text-left font-bold">Команда</th>
-                        <th className="px-3 py-3 text-center font-bold">И</th>
-                        <th className="px-3 py-3 text-center font-bold">Г</th>
-                        <th className="px-3 py-3 text-center font-bold">П</th>
-                        <th className="px-3 py-3 text-center font-bold bg-primary/30">О</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {topScorers.map((player, idx) => (
-                        <tr key={idx} className="border-b border-border hover:bg-primary/5 transition-colors">
-                          <td className="px-3 py-4">
-                            <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
-                              idx < 3 ? 'bg-primary text-black' : 'bg-muted text-foreground'
-                            }`}>
-                              {idx + 1}
-                            </div>
-                          </td>
-                          <td className="px-3 py-4 font-bold">{player.name}</td>
-                          <td className="px-3 py-4 text-muted-foreground">{player.team}</td>
-                          <td className="px-3 py-4 text-center text-muted-foreground">{player.games}</td>
-                          <td className="px-3 py-4 text-center font-semibold">{player.goals}</td>
-                          <td className="px-3 py-4 text-center font-semibold">{player.assists}</td>
-                          <td className="px-3 py-4 text-center bg-primary/10">
-                            <Badge className="bg-primary text-black font-bold text-base">{player.points}</Badge>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-                <div className="p-4 bg-muted/30 border-t border-border">
-                  <div className="flex flex-wrap gap-4 text-xs text-muted-foreground justify-center">
-                    <span><strong>И</strong> - Игры</span>
-                    <span><strong>Г</strong> - Голы</span>
-                    <span><strong>П</strong> - Передачи</span>
-                    <span><strong>О</strong> - Очки (Г+П)</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
+
         </Tabs>
       </div>
     </div>
