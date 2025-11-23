@@ -42,18 +42,24 @@ interface BettingOdds {
 }
 
 const standings: Standing[] = [
-  { position: 1, team: 'Boston Bruins', games: 10, wins: 8, overtimeWins: 1, overtimeLosses: 0, losses: 1, goalsFor: 35, goalsAgainst: 18, points: 25 },
-  { position: 2, team: 'Pittsburgh Penguins', games: 10, wins: 7, overtimeWins: 1, overtimeLosses: 1, losses: 1, goalsFor: 32, goalsAgainst: 20, points: 23 },
-  { position: 3, team: 'Chicago Blackhawks', games: 10, wins: 6, overtimeWins: 2, overtimeLosses: 0, losses: 2, goalsFor: 28, goalsAgainst: 22, points: 22 },
-  { position: 4, team: 'Nashville Predators', games: 10, wins: 6, overtimeWins: 0, overtimeLosses: 2, losses: 2, goalsFor: 26, goalsAgainst: 23, points: 20 },
-  { position: 5, team: 'Vegas Golden Knights', games: 10, wins: 5, overtimeWins: 1, overtimeLosses: 1, losses: 3, goalsFor: 29, goalsAgainst: 26, points: 18 },
-  { position: 6, team: 'Tampa Bay Lightning', games: 10, wins: 5, overtimeWins: 0, overtimeLosses: 2, losses: 3, goalsFor: 27, goalsAgainst: 25, points: 17 },
-  { position: 7, team: 'Toronto Maple Leafs', games: 10, wins: 4, overtimeWins: 1, overtimeLosses: 1, losses: 4, goalsFor: 24, goalsAgainst: 27, points: 15 },
-  { position: 8, team: 'Florida Panthers', games: 10, wins: 4, overtimeWins: 0, overtimeLosses: 1, losses: 5, goalsFor: 22, goalsAgainst: 28, points: 13 },
-  { position: 9, team: 'Colorado Avalanche', games: 10, wins: 3, overtimeWins: 1, overtimeLosses: 0, losses: 6, goalsFor: 20, goalsAgainst: 30, points: 11 },
-  { position: 10, team: 'Montreal Canadiens', games: 10, wins: 3, overtimeWins: 0, overtimeLosses: 1, losses: 6, goalsFor: 18, goalsAgainst: 29, points: 10 },
-  { position: 11, team: 'Detroit Red Wings', games: 10, wins: 2, overtimeWins: 0, overtimeLosses: 2, losses: 6, goalsFor: 16, goalsAgainst: 32, points: 8 },
-  { position: 12, team: 'Arizona Coyotes', games: 10, wins: 1, overtimeWins: 0, overtimeLosses: 1, losses: 8, goalsFor: 12, goalsAgainst: 35, points: 4 },
+  { position: 1, team: 'Команда1', games: 10, wins: 9, overtimeWins: 0, overtimeLosses: 0, losses: 1, goalsFor: 30, goalsAgainst: 12, points: 18 },
+  { position: 2, team: 'Тюмень', games: 10, wins: 6, overtimeWins: 0, overtimeLosses: 2, losses: 2, goalsFor: 22, goalsAgainst: 14, points: 14 },
+  { position: 3, team: 'Светлые Ключи', games: 10, wins: 7, overtimeWins: 0, overtimeLosses: 0, losses: 3, goalsFor: 38, goalsAgainst: 6, points: 14 },
+  { position: 4, team: 'Арлана', games: 10, wins: 7, overtimeWins: 0, overtimeLosses: 0, losses: 3, goalsFor: 15, goalsAgainst: 11, points: 14 },
+  { position: 5, team: 'Челны', games: 10, wins: 6, overtimeWins: 0, overtimeLosses: 0, losses: 4, goalsFor: 18, goalsAgainst: 13, points: 12 },
+  { position: 6, team: 'СКА', games: 10, wins: 5, overtimeWins: 0, overtimeLosses: 2, losses: 3, goalsFor: 17, goalsAgainst: 15, points: 12 },
+  { position: 7, team: 'Сибирь', games: 10, wins: 5, overtimeWins: 0, overtimeLosses: 0, losses: 5, goalsFor: 21, goalsAgainst: 13, points: 10 },
+  { position: 8, team: 'Металлург', games: 9, wins: 4, overtimeWins: 0, overtimeLosses: 0, losses: 5, goalsFor: 8, goalsAgainst: 16, points: 8 },
+  { position: 9, team: 'Мишки Ряж', games: 8, wins: 3, overtimeWins: 1, overtimeLosses: 0, losses: 4, goalsFor: 7, goalsAgainst: 13, points: 8 },
+  { position: 10, team: 'Хумо', games: 8, wins: 3, overtimeWins: 0, overtimeLosses: 1, losses: 4, goalsFor: 9, goalsAgainst: 9, points: 7 },
+  { position: 11, team: 'Крестьян', games: 8, wins: 4, overtimeWins: 0, overtimeLosses: 0, losses: 4, goalsFor: 11, goalsAgainst: 15, points: 8 },
+  { position: 12, team: 'Мэдисон', games: 8, wins: 4, overtimeWins: 0, overtimeLosses: 0, losses: 4, goalsFor: 10, goalsAgainst: 15, points: 8 },
+  { position: 13, team: 'Севересталь', games: 9, wins: 3, overtimeWins: 0, overtimeLosses: 0, losses: 6, goalsFor: 13, goalsAgainst: 9, points: 6 },
+  { position: 14, team: 'ХК Барс', games: 8, wins: 3, overtimeWins: 0, overtimeLosses: 0, losses: 5, goalsFor: 8, goalsAgainst: 6, points: 6 },
+  { position: 15, team: 'Старт', games: 9, wins: 3, overtimeWins: 0, overtimeLosses: 0, losses: 6, goalsFor: 7, goalsAgainst: 13, points: 6 },
+  { position: 16, team: 'Очкарики', games: 9, wins: 2, overtimeWins: 0, overtimeLosses: 0, losses: 7, goalsFor: 15, goalsAgainst: 6, points: 4 },
+  { position: 17, team: 'Агролюбитель', games: 7, wins: 2, overtimeWins: 0, overtimeLosses: 0, losses: 5, goalsFor: 4, goalsAgainst: 2, points: 4 },
+  { position: 18, team: 'Динамо Минск', games: 8, wins: 1, overtimeWins: 0, overtimeLosses: 0, losses: 7, goalsFor: 5, goalsAgainst: 24, points: 2 },
 ];
 
 const topScorers: Player[] = [
