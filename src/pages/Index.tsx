@@ -42,8 +42,8 @@ interface BettingOdds {
 }
 
 const standings: Standing[] = [
-  { position: 1, team: 'Команда1', games: 10, wins: 9, overtimeWins: 0, overtimeLosses: 0, losses: 1, goalsFor: 30, goalsAgainst: 12, points: 18 },
-  { position: 2, team: 'Тюмень', games: 10, wins: 6, overtimeWins: 0, overtimeLosses: 2, losses: 2, goalsFor: 22, goalsAgainst: 14, points: 14 },
+  { position: 1, team: 'Торпедо', games: 10, wins: 9, overtimeWins: 0, overtimeLosses: 0, losses: 1, goalsFor: 30, goalsAgainst: 12, points: 18 },
+  { position: 2, team: 'Салават Юлаев', games: 10, wins: 6, overtimeWins: 0, overtimeLosses: 2, losses: 2, goalsFor: 22, goalsAgainst: 14, points: 14 },
   { position: 3, team: 'Светлые Ключи', games: 10, wins: 7, overtimeWins: 0, overtimeLosses: 0, losses: 3, goalsFor: 38, goalsAgainst: 6, points: 14 },
   { position: 4, team: 'Арлана', games: 10, wins: 7, overtimeWins: 0, overtimeLosses: 0, losses: 3, goalsFor: 15, goalsAgainst: 11, points: 14 },
   { position: 5, team: 'Челны', games: 10, wins: 6, overtimeWins: 0, overtimeLosses: 0, losses: 4, goalsFor: 18, goalsAgainst: 13, points: 12 },
