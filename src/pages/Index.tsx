@@ -52,14 +52,14 @@ const standings: Standing[] = [
   { position: 8, team: 'Динамо Рига', games: 9, wins: 4, overtimeWins: 0, overtimeLosses: 0, losses: 5, goalsFor: 8, goalsAgainst: 16, points: 8 },
   { position: 9, team: 'Слован', games: 8, wins: 3, overtimeWins: 1, overtimeLosses: 0, losses: 4, goalsFor: 7, goalsAgainst: 13, points: 8 },
   { position: 10, team: 'Кристалл', games: 8, wins: 3, overtimeWins: 0, overtimeLosses: 1, losses: 4, goalsFor: 9, goalsAgainst: 9, points: 7 },
-  { position: 11, team: 'Крестьян', games: 8, wins: 4, overtimeWins: 0, overtimeLosses: 0, losses: 4, goalsFor: 11, goalsAgainst: 15, points: 8 },
-  { position: 12, team: 'Мэдисон', games: 8, wins: 4, overtimeWins: 0, overtimeLosses: 0, losses: 4, goalsFor: 10, goalsAgainst: 15, points: 8 },
-  { position: 13, team: 'Севересталь', games: 9, wins: 3, overtimeWins: 0, overtimeLosses: 0, losses: 6, goalsFor: 13, goalsAgainst: 9, points: 6 },
-  { position: 14, team: 'ХК Барс', games: 8, wins: 3, overtimeWins: 0, overtimeLosses: 0, losses: 5, goalsFor: 8, goalsAgainst: 6, points: 6 },
-  { position: 15, team: 'Старт', games: 9, wins: 3, overtimeWins: 0, overtimeLosses: 0, losses: 6, goalsFor: 7, goalsAgainst: 13, points: 6 },
-  { position: 16, team: 'Очкарики', games: 9, wins: 2, overtimeWins: 0, overtimeLosses: 0, losses: 7, goalsFor: 15, goalsAgainst: 6, points: 4 },
-  { position: 17, team: 'Агролюбитель', games: 7, wins: 2, overtimeWins: 0, overtimeLosses: 0, losses: 5, goalsFor: 4, goalsAgainst: 2, points: 4 },
-  { position: 18, team: 'Динамо Минск', games: 8, wins: 1, overtimeWins: 0, overtimeLosses: 0, losses: 7, goalsFor: 5, goalsAgainst: 24, points: 2 },
+  { position: 11, team: 'Йокерит', games: 8, wins: 4, overtimeWins: 0, overtimeLosses: 0, losses: 4, goalsFor: 11, goalsAgainst: 15, points: 8 },
+  { position: 12, team: 'Северсталь', games: 8, wins: 4, overtimeWins: 0, overtimeLosses: 0, losses: 4, goalsFor: 10, goalsAgainst: 15, points: 8 },
+  { position: 13, team: 'Ак Барс', games: 9, wins: 3, overtimeWins: 0, overtimeLosses: 0, losses: 6, goalsFor: 13, goalsAgainst: 9, points: 6 },
+  { position: 14, team: 'Неман', games: 8, wins: 3, overtimeWins: 0, overtimeLosses: 0, losses: 5, goalsFor: 8, goalsAgainst: 6, points: 6 },
+  { position: 15, team: 'Спартак', games: 9, wins: 3, overtimeWins: 0, overtimeLosses: 0, losses: 6, goalsFor: 7, goalsAgainst: 13, points: 6 },
+  { position: 16, team: 'Автомобилист', games: 9, wins: 2, overtimeWins: 0, overtimeLosses: 0, losses: 7, goalsFor: 15, goalsAgainst: 6, points: 4 },
+  { position: 17, team: 'Динамо Минск', games: 7, wins: 2, overtimeWins: 0, overtimeLosses: 0, losses: 5, goalsFor: 4, goalsAgainst: 2, points: 4 },
+  { position: 18, team: 'Витязь', games: 8, wins: 1, overtimeWins: 0, overtimeLosses: 0, losses: 7, goalsFor: 5, goalsAgainst: 24, points: 2 },
 ];
 
 const topScorers: Player[] = [
